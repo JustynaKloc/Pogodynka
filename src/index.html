@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<div id="tooltip"></div>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+<!--<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>-->
+<script type="text/javascript" src="out/production/canvas/lib/kotlin.js"></script>
+<script type="text/javascript" src="out/production/canvas/canvas.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="out/production/WeatherReport/lib/kotlin.js"></script>
+<script type="text/javascript" src="out/production/WeatherReport/WeatherReport.js"></script>
+
+<script type="text/javascript">
+        function showModal(name, temperature, perciptibleTemperature, minTemperature, maxTemperature, pressure, humidity, cloudiness, wind) {
+            $('#weather_details_modal_title').text("Prognoza pogody dla" + name)
+            $('#temperature').text(temperature + " ℃")
+            $('#perciptible_temperature').text(perciptibleTemperature + " ℃")
+            $('#minimal_temperature').text(minTemperature + " ℃")
+            $('#maximal_temperature').text(maxTemperature + " ℃")
+            $('#pressure').text(pressure + " hPa")
+            $('#humidity').text(humidity + "%")
+            $('#cloudiness').text(cloudiness)
+            $('#wind').text(wind)
+            $('#weather_details_modal').modal('show')
+        }
+    </script>
+
+</body>
