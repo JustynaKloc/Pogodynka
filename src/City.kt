@@ -1,6 +1,5 @@
 package hello
 
-import org.w3c.dom.HTMLImageElement
 import org.w3c.dom.Image
 import kotlin.math.roundToInt
 
@@ -33,20 +32,20 @@ class City(name: String, x: Double, y: Double) {
 
         context.save()
 
-        var labelBaseX: Double = mapOriginX + x - textWidthInPixels / 2
-        var labelBaseY: Double = mapOriginY + y - textHeightInPixels / 2 + 30
+        var X: Double = mapOriginX + x - textWidthInPixels / 2
+        var Y: Double = mapOriginY + y - textHeightInPixels / 2 + 30
 
         // Temperature
         var temp: Double = response.main.temp.toDouble()
         context.fillStyle = "rgb(255,255,0)"
         context.font = "bold ${textHeightInPixels}px Georgia, serif"
-        context.fillText((temp - 273.15).roundToInt().toString(), labelBaseX, labelBaseY)
+        context.fillText((temp - 273.15).roundToInt().toString(), X, Y)
 
         // Icon
         var weatherImage = Image();
         weatherImage.src  = "img/" + response.weather[0].icon + ".png";
         weatherImage.onload = {
-            context.drawImage(weatherImage, labelBaseX + 20, labelBaseY - 10)
+            context.drawImage(weatherImage, X + 20, Y - 10)
         }
 
         context.restore()

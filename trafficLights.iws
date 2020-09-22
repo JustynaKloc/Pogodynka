@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d731d079-e176-4e52-9562-5f07b4bec93a" name="Default" comment="" />
+    <list default="true" id="d731d079-e176-4e52-9562-5f07b4bec93a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/out/production/canvas/canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/canvas/canvas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/canvas/canvas.meta.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/canvas/canvas.meta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/canvas/canvas/hello/hello.kjsm" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/canvas/canvas/hello/hello.kjsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/City.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/City.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Load.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResponseCity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResponseCity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/canvas.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/canvas.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trafficLights.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/trafficLights.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trafficLights.iws" beforeDir="false" afterPath="$PROJECT_DIR$/trafficLights.iws" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +28,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1hS6RAKhrMIN53n24f4WyFkkioD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -100,13 +115,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="559" y="183" key="#Web_Browsers/0.0.1920.1040@0.0.1920.1040" timestamp="1599992377447" />
+    <state x="423" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600703026240">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="423" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600703026240" />
     <state x="851" y="146" key="SettingsEditor" timestamp="1600425654975">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="851" y="146" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600425654975" />
-    <state x="155" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1600665012532">
+    <state x="155" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1600761014105">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="155" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600665012532" />
+    <state x="155" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600761014105" />
+    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1600767007488">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1600767007488" />
   </component>
 </project>

@@ -1,11 +1,8 @@
 package hello
 
-import org.w3c.dom.CanvasRenderingContext2D
-import org.w3c.dom.HTMLCanvasElement
 import kotlinx.browser.document
 import kotlinx.browser.window
-import org.w3c.dom.HTMLImageElement
-import org.w3c.dom.Image
+import org.w3c.dom.*
 import kotlin.math.roundToInt
 
 const val MAP_WIDTH: Double = 800.0
@@ -54,7 +51,16 @@ fun renderCanvas(cities: MutableList<City>, bgImage: HTMLImageElement) {
     for(city in cities) {
         city.draw()
     }
-    Loader.loadCitiesWeather(cities)
+    Load.loadCitiesWeather(cities)
+}
+
+fun startRendering(cities: MutableList<City>, bgImage: HTMLImageElement) {
+    renderCanvas(cities, bgImage)
+    Load.loadCitiesWeather(cities)
+    window.setInterval({
+        renderCanvas(cities, bgImage)
+        Load.loadCitiesWeather(cities)
+    },30000000)
 }
 
 fun toCelcius(kelvin: String?) : String {
@@ -79,20 +85,6 @@ fun isWithinCityBoundingBox(x: Double, y: Double, city: City): Boolean {
     return false
 }
 
-fun startRendering(cities: MutableList<City>, bgImage: HTMLImageElement) {
-    renderCanvas(cities, bgImage)
-
-    window.setInterval({
-        renderCanvas(cities, bgImage)
-        Loader.loadCitiesWeather(cities)
-    },300000)
-}
-
-fun clearPopUp(popUpBaseX: Double, popUpBaseY: Double) {
-    context.fillStyle = "rgb(255,255,255)"
-    context.fillRect(popUpBaseX, popUpBaseY, 10.0, MAP_HEIGHT)
-}
-
 fun main() {
 
     var cities: MutableList<City> = mutableListOf<City>()
@@ -101,7 +93,7 @@ fun main() {
     cities.add(City("Gdańsk", 351.6, 120.0))
     cities.add(City("Szczecin", 79.2, 208.8))
     cities.add(City("Bydgoszcz", 340.8, 240.8))
-    cities.add(City("Gorzów Wlkp.", 100.8, 296.0))
+    cities.add(City("Gorzów Wielkopolski", 100.8, 296.0))
     cities.add(City("Zielona Góra", 120.0, 400.0))
     cities.add(City("Wrocław", 203.2, 476.0))
     cities.add(City("Katowice", 392.0, 592.0))
@@ -122,54 +114,18 @@ fun main() {
         startRendering(cities, bgImage)
     }
 
-    canvas.onmousemove =
+    canvas.onmousedown =
     {
         mouseEvent ->
-        var popUpSet: Boolean = false
-        var margin: Double = 16.0
-        var popUpBaseX: Double = mapOriginX + MAP_WIDTH + margin
-        var popUpBaseY: Double = mapOriginY + margin
 
         for (city in cities) {
             if (isWithinCityBoundingBox(mouseEvent.pageX, mouseEvent.pageY, city)) {
 
-                clearPopUp(popUpBaseX - margin, popUpBaseY - margin)
+                window.alert("Prognoza pogody dla " + city.name +"\n"+ "Temperatura: " + toCelcius(city.weather?.main?.temp) + " ℃ \n" +
+                        "Temperatura odczuwalna: " + toCelcius(city.weather?.main?.feels_like) + " ℃ \n" + "Minimalna temperatura: " + toCelcius(city.weather?.main?.temp_min) + " ℃ \n" +
+                        "Maksymalna temperatura: " + toCelcius(city.weather?.main?.temp_max) + " ℃ \n" + "Ciśnienie: " + city.weather?.main?.pressure + " hPa \n"+ "Wilgotność:" + city.weather?.main?.humidity + "%\n")
 
-                var cloudiness = city.weather?.clouds?.all
-                if (cloudiness !== undefined) {
-                    cloudiness += "%"
-                } else {
-                    cloudiness = "N/A"
-                }
-
-                val textHeightInPixels = 16
-                context.fillStyle = "rgb(0,0,0)"
-                context.font = "bold ${textHeightInPixels}px Georgia, serif"
-
-                context.fillText("Prognoza pogody dla " + city.name, popUpBaseX, popUpBaseY)
-                popUpBaseY += textHeightInPixels + margin
-                context.fillText("Temperatura: " + toCelcius(city.weather?.main?.temp) + " ℃", popUpBaseX, popUpBaseY)
-                popUpBaseY += textHeightInPixels + margin
-                context.fillText("Temperatura odczuwalna: " + toCelcius(city.weather?.main?.feels_like) + " ℃", popUpBaseX, popUpBaseY)
-                popUpBaseY += textHeightInPixels + margin
-                context.fillText("Minimalna temperatura: " + toCelcius(city.weather?.main?.temp_min) + " ℃", popUpBaseX, popUpBaseY)
-                popUpBaseY += textHeightInPixels + margin
-                context.fillText("Maksymalna temperatura: " + toCelcius(city.weather?.main?.temp_max) + " ℃", popUpBaseX, popUpBaseY)
-                popUpBaseY += textHeightInPixels + margin
-                context.fillText("Ciśnienie: " + city.weather?.main?.pressure + " hPa", popUpBaseX, popUpBaseY)
-                popUpBaseY += textHeightInPixels + margin
-                context.fillText("Wilgotność: " + city.weather?.main?.humidity + "%", popUpBaseX, popUpBaseY)
-                popUpBaseY += textHeightInPixels + margin
-                context.fillText("Zachmurzenie: " + cloudiness.orEmpty(), popUpBaseX, popUpBaseY)
-                popUpBaseY += textHeightInPixels + margin
-                context.fillText("Prędkość wiatru: " + city.weather?.wind?.speed + " m/s, " , popUpBaseX, popUpBaseY)
-                popUpSet = true
-                break
             }
-        }
-
-        if (!popUpSet) {
-            clearPopUp(popUpBaseX - margin, popUpBaseY - margin)
         }
 
     }
