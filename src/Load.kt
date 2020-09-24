@@ -4,7 +4,7 @@ import org.w3c.xhr.XMLHttpRequest
 
 object Load {
 
-    // "http://api.openweathermap.org/data/2.5/box/city?bbox=17,50,19,53,10&APPID=d024bb6a5c2b3eecfd7d90f9dce6c00a"
+    // "http://api.openweathermap.org/data/2.5/box/city?bbox=17,50,19,53,10&APPID="
 
     fun loadCitiesWeather(cities: MutableList<City>) {
 
@@ -16,7 +16,7 @@ object Load {
     fun loadCityWeather(city: City) {
         var name: String = city.name
 
-        val url = "http://api.openweathermap.org/data/2.5/weather?q=" + name + "&APPID=d024bb6a5c2b3eecfd7d90f9dce6c00a"
+        val url = "http://api.openweathermap.org/data/2.5/weather?q=" + name + "&APPID="
         var responseSingleCity : ResponseCity
         getAsync(url) {
             response ->
